@@ -92,6 +92,11 @@ This project was built to:
 * Improve UI development using Material UI
 
 ---
+## Redux DevTools 
+Add it as a browser extentions where you can see the actionsand state ..
+<img width="641" height="561" alt="image" src="https://github.com/user-attachments/assets/7e4ccdcb-2b97-416f-954a-588734926cfa" />
+
+
 
 ## 👩‍💻 Author
 
