@@ -3,7 +3,7 @@ export interface Habit {
     id : string;
     name:string;
     frequency:"daily"| "weekly" ;
-    completeDates: string[];
+    completedDates: string[];
     createAt : string;
 }
 interface HabitState {
@@ -24,9 +24,6 @@ const habitSlice = createSlice(
        addHabit: (
         state , 
         action : PayloadAction<{name :string , frequency : "daily"|"weekly"}> //This runs when you dispatch:
-
-                                                                              //dispatch(addHabit({ name: "Drink Water", frequency: "daily" }));
-
        )=>{
         //Creating a new habit object
         const newHabit = { 
@@ -40,8 +37,24 @@ const habitSlice = createSlice(
         state.habits.push(newHabit); // Immer handles immutable updates for us
          //Mutating state safely ! bc redux toolkit use Immer under the hood !
        },
+       toggleHabit : (
+        state ,
+        action: PayloadAction<{id : string; date: string}>
+       )=>{
+       const habit = state.habits.find((h)=> h.id === action.payload.id);
+       if (habit){
+        const index = habit.completedDates.indexOf(action.payload.date);
+        if(index>-1){
+            habit.completedDates.splice(index , 1);            
+        }
+        else{
+            habit.completedDates.push(action.payload.date);
+        }
+       }
+
+       },
      },
     }
 );
-export const {addHabit} = habitSlice.actions;
+export const {addHabit , toggleHabit} = habitSlice.actions;
 export default habitSlice.reducer
