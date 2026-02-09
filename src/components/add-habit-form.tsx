@@ -6,8 +6,14 @@ const AddHabitForm: React.FC = ()=>{
     const [name ,setName] = useState<string>("");
     const [frequency , setFrequency] = useState<"daily"| "weekly">("daily");
 
+    //action 
+
+    const handleSubmit =(e:React.SubmitEvent)=>{
+        e.preventDefault();
+    }
+
     return(
-        <form>
+        <form onSubmit={handleSubmit}>
             <Box sx={{
                 display: "flex",
                 flexDirection: "column",
