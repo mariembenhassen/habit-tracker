@@ -31,18 +31,14 @@ This project was created to practice global state management, component architec
 ```
 
 src/
-├── app/
-│   └── store.js
-├── features/
-│   └── habits/
-│       ├── habitsSlice.js
-│       └── HabitsList.jsx
+├── store/
+│   └── store.ts
+│   └── habit-slice.ts
 ├── components/
-│   └── HabitForm.jsx
-├── pages/
-│   └── Home.jsx
-├── App.jsx
-└── main.jsx
+│   └── add-habit-form.tsx
+│   └── habit-list.tsx
+├── App.tsx
+└── main.tsx
 
 ````
 
